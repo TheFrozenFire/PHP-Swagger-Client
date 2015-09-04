@@ -1,0 +1,51 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "bb8d96612e10b8ab765dad18e046131b",
+    "packages": [
+        {
+            "name": "thefrozenfire/swagger",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TheFrozenFire/PHP-Swagger-Parser.git",
+                "reference": "6ceee4697aaaedf09bb9eaf2fd8343ee90d950c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TheFrozenFire/PHP-Swagger-Parser/zipball/6ceee4697aaaedf09bb9eaf2fd8343ee90d950c8",
+                "reference": "6ceee4697aaaedf09bb9eaf2fd8343ee90d950c8",
+                "shasum": ""
+            },
+            "require-dev": {
+                "zendframework/zend-stdlib": "~2.2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Swagger": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Justin Martin",
+                    "email": "frozenfire@thefrozenfire.com"
+                }
+            ],
+            "description": "Swagger parser for PHP",
+            "time": "2015-09-02 19:07:46"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

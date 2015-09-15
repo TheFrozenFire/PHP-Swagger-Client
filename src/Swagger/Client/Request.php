@@ -23,68 +23,71 @@ class Request
     {
         $this->setDocument($document);
         $this->setOperationConfig($operationConfig);
-        
-        if(!is_null($securityCredential)) {
-            $this->setSecurityCredential($securityCredential);
-        }
+        $this->setSecurityCredential($securityCredential);
     }
     
     public function configureHttpClient(HttpClient $client)
     {
         $document = $this->getDocument();
         $operationConfig = $this->getOperationConfig();
-        $credential = $this->getCredential();
+        $credential = $this->getSecurityCredential();
         
         if($credential instanceof SecurityCredential) {
             $credential->configureHttpClient($client);
         }
         
-        $path = $document->getPaths()
-            ->getPath($operationConfig->getPath());
+        $operationReference = $operationConfig->getOperation();
         
-        switch($operationConfig->getMethod()) {
-            case $operationConfig::OPERATION_GET:
-                $operation = $path->getGet();
-                
-                $client->setMethod(HttpRequest::METHOD_GET);
-                break;
-            case OperationConfig::OPERATION_PUT:
-                $operation = $path->getPut();
-                
-                $client->setMethod(HttpRequest::METHOD_PUT);
-                break;
-            case $operationConfig::OPERATION_POST:
-                $operation = $path->getPost();
-                
-                $client->setMethod(HttpRequest::METHOD_POST);
-                break;
-            case $operationConfig::OPERATION_DELETE:
-                $operation = $path->getDelete();
-                
-                $client->setMethod(HttpRequest::METHOD_DELETE);
-                break;
-            case $operationConfig::OPERATION_OPTIONS:
-                $operation = $path->getOptions();
-                
-                $client->setMethod(HttpRequest::METHOD_OPTIONS);
-                break;
-            case $operationConfig::OPERATION_HEAD:
-                $operation = $path->getHead();
-                
-                $client->setMethod(HttpRequest::METHOD_HEAD);
-                break;
-            case $operationConfig::OPERATION_PATCH:
-                $operation = $path->getPatch();
-                
-                $client->setMethod(HttpRequest::METHOD_PATCH);
-                break;
-            default:
-                throw new \InvalidArgumentException('Operation type is not supported');
+        $path = $this->interpolatePathParameters(
+            $operationReference->getPath(),
+            $operationConfig->getPathParameters()
+        );
+        
+        $client->setMethod($operationReference->getMethod());
+        if($mediaType = $operationConfig->getMediaType()) {
+            $client->getRequest()
+                ->getHeaders()
+                ->addHeaderLine('Content-Type', $mediaType);
+        }
+        $client->setUri("{$operationConfig->getScheme()}://{$document->getHost()}{$document->getBasePath()}{$path}");
+        
+        if($queryParams = $operationConfig->getQueryParameters()) {
+            $client->getRequest()
+                ->getQuery()
+                ->fromArray($queryParams);
         }
         
-        $client->setUri("{$operationConfig->getScheme()}://{$document->getBasePath()}{$operationConfig->getPath()}");
+        if($headerParams = $operationConfig->getHeaderParameters()) {
+            $client->getRequest()
+                ->getHeaders()
+                ->addHeaders($headerParams);
+        }
+        
+        if($bodyParam = $operationConfig->getBodyParameter()) {
+            $client->setRawContent($bodyParam);
+        }
+        
+        if($formParams = $operationConfig->getFormParameters()) {
+            $client->setParameterPost($formParams);
+        }
         
         return $client;
+    }
+    
+    protected function interpolatePathParameters(
+        $path,
+        $parameters
+    )
+    {
+        $search = [];
+        $replace = [];
+        
+        foreach($parameters as $key => $value) {
+            $search[] = "{{$key}}";
+            $replace[] = $value;
+        }
+        
+        return str_replace($search, $replace, $path);
     }
     
     protected function getDocument()
@@ -125,7 +128,7 @@ class Request
         return $this->securityCredential;
     }
     
-    protected function setSecurityCredential(SecurityCredential $securityCredential)
+    protected function setSecurityCredential(SecurityCredential $securityCredential = null)
     {
         $this->securityCredential = $securityCredential;
         return $this;

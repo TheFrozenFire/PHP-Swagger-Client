@@ -1,11 +1,15 @@
 <?php
 namespace Swagger\Client;
 
+use Swagger\OperationReference;
+
 class OperationConfig
 {
-    protected $operationId;
+    protected $operation;
     
     protected $scheme;
+    
+    protected $mediaType;
     
     protected $pathParameters = [];
     
@@ -17,14 +21,14 @@ class OperationConfig
     
     protected $formParameters = [];
     
-    public function getOperationId()
+    public function getOperation()
     {
-        return $this->operationId;
+        return $this->operation;
     }
     
-    public function setOperationId($operationId)
+    public function setOperation(OperationReference $operation)
     {
-        $this->operationId = $operationId;
+        $this->operation = $operation;
         return $this;
     }
     
@@ -36,6 +40,17 @@ class OperationConfig
     public function setScheme($scheme)
     {
         $this->scheme = $scheme;
+        return $this;
+    }
+    
+    public function getMediaType()
+    {
+        return $this->mediaType;
+    }
+    
+    public function setMediaType($mediaType)
+    {
+        $this->mediaType = $mediaType;
         return $this;
     }
     

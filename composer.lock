@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "417cbdc64ea4018ae76d3d8954a378c6",
+    "content-hash": "b878ef73d0ff03148bb3ff2a95182dbd",
     "packages": [
         {
             "name": "thefrozenfire/swagger",

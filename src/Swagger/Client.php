@@ -8,8 +8,7 @@ class Client extends AbstractClient
     protected $defaultSecurityCredential;
 
     public static function create(
-        $swaggerUrl,
-        Client\SecurityCredential $defaultSecurityCredential = null
+        $swaggerUrl
     )
     {
         $spec = file_get_contents($swaggerUrl);
@@ -19,11 +18,30 @@ class Client extends AbstractClient
         
         $document->setDefaultScheme(parse_url($swaggerUrl, PHP_URL_SCHEME));
         
-        $client = new static($document);
-        
-        $client->setDefaultSecurityCredential($defaultSecurityCredential);
-        
-        return $client;
+        return new static($document);
+    }
+    
+    public function createBasicCredential(
+        $username,
+        $password
+    )
+    {
+        return new Client\SecurityCredential\Basic($username, $password);
+    }
+    
+    public function createApiKeyCredential(
+        $apiKey
+    )
+    {
+        $scheme = $this->getDocument()
+            ->getSecuritySchemeOfType(Object\SecurityScheme::TYPE_APIKEY);
+    
+        return new Client\SecurityCredential\ApiKey($apiKey, $scheme);
+    }
+    
+    public function createOAuth2Credential()
+    {
+        throw new \BadMethodCallException('Not implemented');
     }
 
     public function createRequest(

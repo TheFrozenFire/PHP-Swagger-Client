@@ -2,6 +2,7 @@
 namespace Swagger;
 
 use Swagger\Exception as SwaggerException;
+use Zend\Http\Response as HttpResponse;
 
 class Client extends AbstractClient
 {
@@ -75,13 +76,29 @@ class Client extends AbstractClient
         return $this->createRequest($name, $securityCredential);
     }
     
-    public function execute(Client\Request $request, $reset = true)
+    public function execute(Client\Request $request)
+    {
+        $httpResponse = $this->request($request);
+        
+        $response = $this->parseResponse(
+            $request->getOperationConfig()
+                ->getOperation()
+                ->getOperationId(),
+            $httpResponse
+        );
+        
+        return $response;
+    }
+    
+    public function request(Client\Request $request, $reset = true)
     {
         $this->configureHttpClient($request, $reset);
         
         $client = $this->getHttpClient();
         
-        return $client->send();
+        $response = $client->send();
+        
+        return $response;
     }
     
     public function getDefaultSecurityCredential()

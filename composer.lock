@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "417cbdc64ea4018ae76d3d8954a378c6",
-    "content-hash": "b878ef73d0ff03148bb3ff2a95182dbd",
+    "hash": "ec1341ece60b1d7538048806ca6bf52e",
+    "content-hash": "126e6862c36c63ec15f37cd2b90fa1cd",
     "packages": [
         {
             "name": "thefrozenfire/swagger",
-            "version": "2.0.3",
+            "version": "2.0.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheFrozenFire/PHP-Swagger-Parser.git",
-                "reference": "e7cd8839a4422108475361e24fad1f5935d28ac0"
+                "reference": "f439702bef51ab9f7c4d5a6b456036436013bb45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheFrozenFire/PHP-Swagger-Parser/zipball/e7cd8839a4422108475361e24fad1f5935d28ac0",
-                "reference": "e7cd8839a4422108475361e24fad1f5935d28ac0",
+                "url": "https://api.github.com/repos/TheFrozenFire/PHP-Swagger-Parser/zipball/f439702bef51ab9f7c4d5a6b456036436013bb45",
+                "reference": "f439702bef51ab9f7c4d5a6b456036436013bb45",
                 "shasum": ""
             },
             "require-dev": {
@@ -38,24 +38,24 @@
                 }
             ],
             "description": "Swagger parser for PHP",
-            "time": "2015-09-08 21:48:47"
+            "time": "2015-09-17 20:59:24"
         },
         {
             "name": "zendframework/zend-escaper",
-            "version": "2.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-escaper.git",
-                "reference": "a4b227d8a477f4e7e9073f8e0a7ae7dbd3104a73"
+                "reference": "4931575996994f7e1a6e7f59445dc9334400048d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-escaper/zipball/a4b227d8a477f4e7e9073f8e0a7ae7dbd3104a73",
-                "reference": "a4b227d8a477f4e7e9073f8e0a7ae7dbd3104a73",
+                "url": "https://api.github.com/repos/zendframework/zend-escaper/zipball/4931575996994f7e1a6e7f59445dc9334400048d",
+                "reference": "4931575996994f7e1a6e7f59445dc9334400048d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.7.*",
@@ -82,20 +82,20 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-06-03 14:05:37"
+            "time": "2015-06-05 09:18:01"
         },
         {
             "name": "zendframework/zend-http",
-            "version": "2.5.3",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-http.git",
-                "reference": "21174ba162cfda8d0b1d172d9f80a8bea0b767be"
+                "reference": "88d395197acc3b11ce3a30bd4173a0746f9e2005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/21174ba162cfda8d0b1d172d9f80a8bea0b767be",
-                "reference": "21174ba162cfda8d0b1d172d9f80a8bea0b767be",
+                "url": "https://api.github.com/repos/zendframework/zend-http/zipball/88d395197acc3b11ce3a30bd4173a0746f9e2005",
+                "reference": "88d395197acc3b11ce3a30bd4173a0746f9e2005",
                 "shasum": ""
             },
             "require": {
@@ -132,24 +132,24 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-09-14 15:58:07"
+            "time": "2015-09-14 16:00:50"
         },
         {
             "name": "zendframework/zend-loader",
-            "version": "2.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-loader.git",
-                "reference": "c5fd2f071bde071f4363def7dea8dec7393e135c"
+                "reference": "b247db701f618b981a531477a2efe2532949e652"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-loader/zipball/c5fd2f071bde071f4363def7dea8dec7393e135c",
-                "reference": "c5fd2f071bde071f4363def7dea8dec7393e135c",
+                "url": "https://api.github.com/repos/zendframework/zend-loader/zipball/b247db701f618b981a531477a2efe2532949e652",
+                "reference": "b247db701f618b981a531477a2efe2532949e652",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.7.*",
@@ -176,26 +176,27 @@
                 "loader",
                 "zf2"
             ],
-            "time": "2015-06-03 14:05:47"
+            "time": "2015-06-05 09:18:08"
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.6.0",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
-                "reference": "a35758803fc9051ec1aff43989e679b6b451b1b4"
+                "reference": "2e4f5dbc8ab050ab4acc6da9e6bca18204e91a62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/a35758803fc9051ec1aff43989e679b6b451b1b4",
-                "reference": "a35758803fc9051ec1aff43989e679b6b451b1b4",
+                "url": "https://api.github.com/repos/zendframework/zend-stdlib/zipball/2e4f5dbc8ab050ab4acc6da9e6bca18204e91a62",
+                "reference": "2e4f5dbc8ab050ab4acc6da9e6bca18204e91a62",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.5"
             },
             "require-dev": {
+                "athletic/athletic": "~0.1",
                 "fabpot/php-cs-fixer": "1.7.*",
                 "phpunit/phpunit": "~4.0",
                 "zendframework/zend-config": "~2.5",
@@ -232,24 +233,24 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21 17:08:05"
+            "time": "2015-09-17 14:41:47"
         },
         {
             "name": "zendframework/zend-uri",
-            "version": "2.5.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-uri.git",
-                "reference": "fe6c7f4c8d9037fe551898a538a2b6d39483f572"
+                "reference": "1c36ee4b734640791fd3c08cc921ee891a7d35a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-uri/zipball/fe6c7f4c8d9037fe551898a538a2b6d39483f572",
-                "reference": "fe6c7f4c8d9037fe551898a538a2b6d39483f572",
+                "url": "https://api.github.com/repos/zendframework/zend-uri/zipball/1c36ee4b734640791fd3c08cc921ee891a7d35a0",
+                "reference": "1c36ee4b734640791fd3c08cc921ee891a7d35a0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
+                "php": ">=5.5",
                 "zendframework/zend-escaper": "~2.5",
                 "zendframework/zend-validator": "~2.5"
             },
@@ -279,20 +280,20 @@
                 "uri",
                 "zf2"
             ],
-            "time": "2015-06-03 15:32:03"
+            "time": "2015-06-05 09:18:14"
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.5.3",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
-                "reference": "53e567a58c8952a03da0b8edf0f075303a5ac5d1"
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/53e567a58c8952a03da0b8edf0f075303a5ac5d1",
-                "reference": "53e567a58c8952a03da0b8edf0f075303a5ac5d1",
+                "url": "https://api.github.com/repos/zendframework/zend-validator/zipball/724f69f845f27e0436af7343a5bd5c9e7748bcaa",
+                "reference": "724f69f845f27e0436af7343a5bd5c9e7748bcaa",
                 "shasum": ""
             },
             "require": {
@@ -345,13 +346,15 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-09-03 19:06:11"
+            "time": "2015-09-03 19:14:39"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "thefrozenfire/swagger": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

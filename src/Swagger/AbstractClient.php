@@ -45,7 +45,6 @@ abstract class AbstractClient
             ->parseDataObject($dataType, $responseObject);
     
         return new Client\Response(
-            $dataType,
             $response->getHeaders()
                 ->toArray(),
             $result

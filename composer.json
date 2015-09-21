@@ -8,13 +8,15 @@
         }
     ],
     "require": {
-        "thefrozenfire/swagger": "2.0.x-dev",
+        "thefrozenfire/swagger": "^2.0.5",
         "zendframework/zend-http": "^2.5"
+    },
+    "require-dev": {
+        "thefrozenfire/swagger": "2.0.x-dev"
     },
     "autoload": {
         "psr-0": {
             "Swagger": "src/"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

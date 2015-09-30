@@ -9,16 +9,16 @@
     "packages": [
         {
             "name": "thefrozenfire/swagger",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/TheFrozenFire/PHP-Swagger-Parser.git",
-                "reference": "38df900fd686960aa64275d2c8c661f54431172e"
+                "reference": "8007be78295f5a3f174f7e18421a9f6604067edf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheFrozenFire/PHP-Swagger-Parser/zipball/38df900fd686960aa64275d2c8c661f54431172e",
-                "reference": "38df900fd686960aa64275d2c8c661f54431172e",
+                "url": "https://api.github.com/repos/TheFrozenFire/PHP-Swagger-Parser/zipball/8007be78295f5a3f174f7e18421a9f6604067edf",
+                "reference": "8007be78295f5a3f174f7e18421a9f6604067edf",
                 "shasum": ""
             },
             "require-dev": {
@@ -42,7 +42,7 @@
                 }
             ],
             "description": "Swagger parser for PHP",
-            "time": "2015-09-21 19:48:38"
+            "time": "2015-09-23 22:52:23"
         },
         {
             "name": "zendframework/zend-escaper",

@@ -59,7 +59,38 @@ class Client extends AbstractClient
         $operationConfig = (new Client\OperationConfig)
             ->setOperation($operationReference)
             ->setScheme($defaultScheme);
+        
+        $defaultMediaType = null;
+        
+        // Get default media type from operation's `consumes` field
+        try {
+            $operationConsumes = $operationReference->getOperation()
+                                                    ->getConsumes();
             
+            if(!empty($operationConsumes)) {
+                $defaultMediaType = $operationConsumes[0];
+            }
+        } catch(SwaggerException\MissingDocumentPropertyException $e) {
+            // It's fine - most operations won't specify this
+        }
+        
+        if(empty($defaultMediaType)) {
+            // Get default media type from top-level `consumes` field
+            try {
+                $swaggerConsumes = $document->getConsumes();
+                
+                if(!empty($swaggerConsumes)) {
+                    $defaultMediaType = $swaggerConsumes[0];
+                }
+            } catch(SwaggerException\MissingDocumentPropertyException $e) {
+                // Alright - not every API requires a content type
+            }
+        }
+        
+        if(!empty($defaultMediaType)) {
+            $operationConfig->setMediaType($defaultMediaType);
+        }
+        
         $request = new Client\Request(
             $document,
             $operationConfig,

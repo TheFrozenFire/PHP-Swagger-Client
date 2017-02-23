@@ -64,11 +64,16 @@ class Request
         }
         
         if($bodyParam = $operationConfig->getBodyParameter()) {
-            $client->setRawContent($bodyParam);
+            $client->setRawBody($bodyParam);
         }
         
         if($formParams = $operationConfig->getFormParameters()) {
-            $client->setParameterPost($formParams);
+            if (array_key_exists('filename', $formParams)) {
+                $client->setFileUpload($formParams['filename'], $formParams['formname'], $formParams['data'], $formParams['ctype']);
+                $client->getRequest()->getHeaders()->clearHeaders();
+            } else {
+                $client->setParameterPost($formParams);
+            }
         }
         
         return $client;

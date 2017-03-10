@@ -70,7 +70,6 @@ class Request
         if($formParams = $operationConfig->getFormParameters()) {
             if (array_key_exists('filename', $formParams)) {
                 $client->setFileUpload($formParams['filename'], $formParams['formname'], $formParams['data'], $formParams['ctype']);
-                $client->getRequest()->getHeaders()->clearHeaders();
             } else {
                 $client->setParameterPost($formParams);
             }

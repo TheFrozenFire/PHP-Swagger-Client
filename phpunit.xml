@@ -1,0 +1,13 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Client">
+            <file>tests/Swagger</file>
+        </testsuite>
+        <testsuite name="Security">
+            <directory>tests/Swagger/Client/SecurityCredentials</directory>
+        </testsuite>
+        <testsuite name="RequestResponse">
+            <directory>tests/Swagger/Client</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

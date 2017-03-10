@@ -1,0 +1,166 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "description":"Test",
+    "version":"TestVersion",
+    "title":"Test Title"
+  },
+  "host":"www.test.com",
+  "basePath":"/testBasePath",
+  "tags":[
+  ],
+  "schemes":[
+    "https"
+  ],
+  "consumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "paths":{
+    "/testGet/{testPathParam}":{
+      "get":{
+        "summary":"Test Get",
+        "description":"Test Get",
+        "operationId":"testGet",
+        "consumes":[
+          "application/json"
+        ],
+        "produces":[
+          "application/json"
+        ],
+        "parameters":[
+          {
+            "name":"test1",
+            "in":"query",
+            "description":"test 1 field",
+            "required":false,
+            "type":"string"
+          },
+          {
+            "name":"test2",
+            "in":"query",
+            "description":"test2",
+            "required":false,
+            "type":"integer",
+            "default":100,
+            "format":"int64"
+          },
+          {
+            "name":"test3",
+            "in":"query",
+            "description":"test3",
+            "required":false,
+            "type":"array",
+            "items":{
+              "type":"integer",
+              "format":"int64"
+            },
+            "collectionFormat":"multi"
+          },
+          {
+            "name":"test4",
+            "in":"query",
+            "description":"test4",
+            "required":false,
+            "type":"boolean"
+          }
+        ],
+        "responses":{
+          "200":{
+            "description":"successful operation",
+            "schema":{
+              "$ref":"#/definitions/TestResponse"
+            }
+          }
+        },
+        "security":[
+          {
+            "basicAuth":[
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions":{
+    "basicAuth":{
+      "type":"basic"
+    },
+    "UserSecurity":{
+      "type":"apiKey",
+      "in":"header",
+      "name":"SIMPLE-API-KEY"
+    }
+  },
+  "definitions":{
+    "TestResponse":{
+      "type":"object",
+      "properties":{
+        "testParam1":{
+          "type":"integer",
+          "format":"int64",
+          "description":"testParam1 description"
+        },
+        "testParam2":{
+          "type":"string",
+          "description":"testParam2 description"
+        },
+        "testParam3":{
+          "type":"boolean",
+          "description":"testParam3 description",
+          "default":false
+        },
+        "testInternalObjParam1":{
+          "description":"testInternalObjParam description",
+          "$ref":"#/definitions/InternalObject1"
+        },
+        "testInternalObjParam2":{
+          "type":"array",
+          "description":"testInternalObjParam2 description",
+          "items":{
+            "$ref":"#/definitions/InternalObject2"
+          }
+        }
+
+      }
+    },
+    "InternalObject1":{
+      "type":"object",
+      "properties":{
+        "testParam1":{
+          "type":"integer",
+          "format":"int64",
+          "description":"Test description"
+        },
+        "testParam2":{
+          "type":"array",
+          "description":"testParam2 description",
+          "items":{
+            "type":"string"
+          }
+        }
+      },
+      "description":"InternalObject1 description"
+    },
+    "InternalObject2":{
+      "type":"object",
+      "properties":{
+        "testParam1":{
+          "type":"integer",
+          "format":"int64",
+          "description":"Test description"
+        },
+        "testParam2":{
+          "type":"array",
+          "description":"testParam2 description",
+          "items":{
+            "type":"string"
+          }
+        }
+      },
+      "description":"InternalObject2 description"
+    }
+  }
+}

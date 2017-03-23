@@ -1,0 +1,19 @@
+{
+  "testParam1": 100,
+  "testParam2": "testString",
+  "testParam3": true,
+  "testInternalObjParam1": {
+    "testParam1": 100,
+    "testParam2": [
+      "testString"
+    ]
+  },
+  "testInternalObjParam2": [
+    {
+      "testParam1": 100,
+      "testParam2": [
+        "testString"
+      ]
+    }
+  ]
+}

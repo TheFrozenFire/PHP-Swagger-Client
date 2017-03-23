@@ -1,0 +1,28 @@
+{
+  "swagger":"2.0",
+  "info":{
+    "description":"Test",
+    "version":"TestVersion",
+    "title":"Test Title"
+  },
+  "host":"www.callfire.com",
+  "basePath":"/testBasePath",
+  "tags":[
+  ],
+  "schemes":[
+    "https"
+  ],
+  "consumes":[
+    "application/json"
+  ],
+  "produces":[
+    "application/json"
+  ],
+  "paths":{
+  },
+  "securityDefinitions":{
+    "basicAuth":{
+      "type":"basic"
+    }
+  }
+}

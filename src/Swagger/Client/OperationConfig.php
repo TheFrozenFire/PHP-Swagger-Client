@@ -132,4 +132,12 @@ class OperationConfig
         $this->formParameters[] = $formParameter;
         return $this;
     }
+    
+    public function setFileUpload($filename, $formname, $data = null, $ctype = null)
+    {
+        $this->formParameters['formname'] = $formname;
+        $this->formParameters['filename'] = $filename;
+        $this->formParameters['ctype'] = $ctype;
+        $this->formParameters['data'] = $data;
+    }
 }

@@ -42,7 +42,7 @@ class RequestTest extends AbstractTest
 
         $clientFileParam = $client->getRequest()->getFiles()->toArray()['tests\resources\testFile.mp3'];
         $this->assertNotNull($clientFileParam);
-        $this->assertEquals($clientFileParam['formname'], 'testFileName');
+        $this->assertEquals($clientFileParam['formname'], 'file');
         $this->assertEquals($clientFileParam['filename'], 'testFile.mp3');
         $this->assertEquals($clientFileParam['ctype'], 'application/octet-stream');
         $this->assertNotNull($clientFileParam['data']);

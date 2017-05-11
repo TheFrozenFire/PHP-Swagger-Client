@@ -45,7 +45,7 @@ class Request
 
         $client->setMethod($operationReference->getMethod());
         $mediaType = $operationConfig->getMediaType();
-        if($mediaType && $mediaType != 'multipart/form-data') {
+        if($mediaType && $mediaType !== 'multipart/form-data') {
             $client->getRequest()
                 ->getHeaders()
                 ->addHeaderLine('Content-Type', $mediaType);
@@ -96,23 +96,23 @@ class Request
         return str_replace($search, $replace, $path);
     }
 
-    public function getDocument()
+    protected function getDocument()
     {
         return $this->document;
     }
 
-    public function setDocument(SwaggerDocument $document)
+    protected function setDocument(SwaggerDocument $document)
     {
         $this->document = $document;
         return $this;
     }
 
-    public function getPath()
+    protected function getPath()
     {
         return $this->path;
     }
 
-    public function setPath($path)
+    protected function setPath($path)
     {
         $this->path = $path;
         return $this;

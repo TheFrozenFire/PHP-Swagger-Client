@@ -37,12 +37,12 @@ class RequestTest extends AbstractTest
     {
         $request = $this->getRequest();
 
-        $request->getOperationConfig()->setFileUpload('tests\resources\testFile.mp3', 'testFileName');
+        $request->getOperationConfig()->setFileUpload('tests\resources\testFile.mp3', 'testFormName', null, null, 'testName');
         $client = $request->configureHttpClient(new HttpClient());
 
         $clientFileParam = $client->getRequest()->getFiles()->toArray()['tests\resources\testFile.mp3'];
         $this->assertNotNull($clientFileParam);
-        $this->assertEquals($clientFileParam['formname'], 'file');
+        $this->assertEquals($clientFileParam['formname'], 'testFormName');
         $this->assertEquals($clientFileParam['filename'], 'testFile.mp3');
         $this->assertEquals($clientFileParam['ctype'], 'application/octet-stream');
         $this->assertNotNull($clientFileParam['data']);

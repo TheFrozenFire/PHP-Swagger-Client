@@ -69,8 +69,8 @@ class Request
         }
 
         if($formParams = $operationConfig->getFormParameters()) {
-            if (array_key_exists('pathToFile', $formParams)) {
-                $client->setFileUpload($formParams['pathToFile'], $formParams['formname'], $formParams['data'], $formParams['ctype']);
+            if (array_key_exists('filename', $formParams)) {
+                $client->setFileUpload($formParams['filename'], $formParams['formname'], $formParams['data'], $formParams['ctype']);
                 $client->setParameterPost(array('name' => $formParams['name']));
             } else {
                 $client->setParameterPost($formParams);

@@ -38,14 +38,14 @@ class AbstractClientTest extends AbstractTest
     public function testConfigureHttpClientWithFileToUploadParams()
     {
         $request = $this->getRequest();
-        $request->getOperationConfig()->setFileUpload('tests\resources\testFile.mp3', 'testFileName');
+        $request->getOperationConfig()->setFileUpload('tests\resources\testFile.mp3', 'testFormName');
         $client = new TestableClient($this->getDocument());
 
         $configuredClient = $client->configureHttpClient($request);
 
         $clientFileParam = $configuredClient->getRequest()->getFiles()->toArray()['tests\resources\testFile.mp3'];
         $this->assertNotNull($clientFileParam);
-        $this->assertEquals($clientFileParam['formname'], 'testFileName');
+        $this->assertEquals($clientFileParam['formname'], 'testFormName');
         $this->assertEquals($clientFileParam['filename'], 'testFile.mp3');
         $this->assertEquals($clientFileParam['ctype'], 'application/octet-stream');
         $this->assertNotNull($clientFileParam['data']);
